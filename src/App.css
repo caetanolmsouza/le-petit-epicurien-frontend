@@ -1,1 +1,26 @@
 
+.navbar {
+    background-color: aqua;
+    height: 5rem;
+}
+
+.searchInput {
+    width: 50rem;
+}
+
+.navbarUpButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 40px;
+    margin-top: 1%;
+    
+}
