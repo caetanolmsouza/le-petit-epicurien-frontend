@@ -1,4 +1,8 @@
 
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .navbar {
     background-color: aqua;
     height: 5rem;
@@ -25,15 +29,43 @@
     
 }
 
-.homeImage {
+.loginDiv {
     border:brown 5px;
     border-color: brown;
     width: 70%;
-    height: 400px;
+    height: 500px;
+    width: 500px;
     background-color: bisque;
+    
+    position: relative;
+left:35%;
+top: 200px;
+border-radius: 3%;
+background-color: rgb(189, 196, 176);
+display: flex;
+flex-wrap: wrap;
+align-content:center;
+gap: 50px;
+padding: 2rem;
+}
 
+.logInput {
+    width: 20rem;
+}
+
+.userMailPassDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 50px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: rgb(0, 132, 103);
 }
 
 body {
-    
+    background-image: url("./assets/wall.jpg");
+    background-size: cover;
 }
