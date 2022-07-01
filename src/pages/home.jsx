@@ -1,10 +1,11 @@
 import React from "react";
 import Paris from "../assets/Paris.png";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div>
-      <img className="homeImage" src={Paris} />
+      <div className="Login">hello</div>
     </div>
   );
 };
