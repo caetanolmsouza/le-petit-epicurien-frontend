@@ -31,7 +31,13 @@ const Home = () => {
         password,
         username,
       },
-    });
+    })
+      .then((response) => {
+        console.log("good", response.data);
+      })
+      .catch((err) => {
+        console.log("bad", err.response.data);
+      });
   };
   return (
     <div>
