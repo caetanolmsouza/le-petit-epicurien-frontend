@@ -25,7 +25,7 @@ const AllRestaurants = () => {
   return (
     <div>
       {restaurants.map((restaurant) => (
-        <RestaurantCard key={'picture'} {...restaurant} />
+        <RestaurantCard key={restaurant._id} {...restaurant} />
       ))}
     </div>
   )
