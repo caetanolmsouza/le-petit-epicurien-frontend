@@ -1,7 +1,9 @@
 import React from 'react'
+
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/auth.context'
 
 const API_URL = 'http://localhost:5005'
 
@@ -9,6 +11,8 @@ const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState(undefined)
+
+  const { storeToken } = useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -28,6 +32,11 @@ const LoginForm = () => {
       },
     })
       .then((response) => {
+        const { authToken } = response.data
+        // let the AuthContext have the authToken
+        storeToken(authToken)
+        // redirect home
+        navigate('/')
         console.log('success', response.data)
       })
       .catch((err) => {
