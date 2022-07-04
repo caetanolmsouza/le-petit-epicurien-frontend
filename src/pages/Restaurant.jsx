@@ -1,7 +1,14 @@
-import React from "react";
+import React from "react"
+
+import CreateNewReservationForm from "../components/CreateNewReservationForm"
 
 const Restaurant = () => {
-  return <div>Restaurant</div>;
-};
+  return (
+    <section>
+      <h2>Restaurant</h2>
+      <CreateNewReservationForm />
+    </section>
+  )
+}
 
-export default Restaurant;
+export default Restaurant

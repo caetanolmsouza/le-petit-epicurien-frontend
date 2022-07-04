@@ -1,0 +1,15 @@
+.item {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  max-width: 450px;
+  margin: 2rem auto;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+.item {
+  padding: 1rem 2rem;
+}
+.item h4 {
+  margin-bottom: 0;
+}
