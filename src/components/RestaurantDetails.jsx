@@ -1,7 +1,54 @@
-import React from "react";
+import React from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const RestaurantDetails = () => {
-  return <div>RestaurantDetails</div>;
-};
+  const { id } = useParams()
+  const [restaurant, setRestaurant] = useState(null)
 
-export default RestaurantDetails;
+  useEffect(() => {
+    axios
+      .get(`https://le-petit-epicurien.herokuapp.com/restaurants/${id}`)
+      .then((reponse) => {
+        console.log('reponseData', reponse.data)
+        setRestaurant(reponse.data)
+      })
+  }, [])
+
+  if (!restaurant) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <div className="restaurantContainer">
+        <img
+          className="singleRestaurantImage"
+          alt=""
+          src={restaurant.mainImage}
+        />
+        <div className="singleInfoRestaurant">
+          <h2>
+            <Link to={`/restaurantDetails/${restaurant._id}`}>
+              {restaurant.name}
+            </Link>
+          </h2>
+          <h3>{restaurant.cuisine}</h3>
+          <p>{restaurant.localisation.address.street_name}</p>
+          <p>{restaurant.priceRange}</p>
+          <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
+          <p>{restaurant.marketingOffer}</p>
+          <p>{restaurant.galleryPictures}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default RestaurantDetails

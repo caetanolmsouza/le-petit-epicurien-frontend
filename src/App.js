@@ -4,7 +4,6 @@ import Home from './pages/HomePage'
 import AllRestaurants from './pages/AllRestaurants'
 import AllReservations from './pages/AllReservations'
 import Restaurant from './pages/Restaurant'
-
 import './App.css'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
