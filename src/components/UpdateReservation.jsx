@@ -5,41 +5,35 @@ import axios from 'axios'
 const API_URL = 'http://localhost:5005'
 
 const UpdateReservation = (props) => {
-  const [date, setDate] = useState('')
-  const [text, setText] = useState('')
-  const handleDate = (e) => setDate(e.target.value)
+  const [date, setDate] = useState(props.date)
+  const [text, setText] = useState(props.text)
+  const [numberOfGuests, setNumberOfGuests] = useState(props.numberOfGuests)
+  const handleDate = (e) => setDate(new Date(e.target.value))
   const handleText = (e) => setText(e.target.value)
+  const handleNumberOfGuests = (e) => setNumberOfGuests(e.target.value)
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault()
-    axios({
-      url: 'api/reservation/:id',
-      baseURL: API_URL,
-      method: 'patch',
-      data: {
-        date,
-        text,
-      },
-    })
-      .then((response) => {
-        console.log('good', response.data)
-      })
-      .catch((err) => {
-        console.log('bad', err.response.data)
-      })
-  }
+  let dateString =
+    date.getFullYear().toString().padStart(4, '0') +
+    '-' +
+    (date.getMonth() + 1).toString().padStart(2, '0') +
+    '-' +
+    date.getDate().toString().padStart(2, '0')
   return (
     <>
-      <form onSubmit={handleSignupSubmit}>
+      <form
+        onSubmit={(e) =>
+          props.handleUpdateSubmit(e, props.id, { text, date, numberOfGuests })
+        }
+      >
         <div className="userMailPassDiv">
           <div>
             <label>Date:</label>
             <input
               className="logInput"
-              type="number"
+              type="date"
               placeholder="reservation date"
               name="date"
-              value={date}
+              value={dateString}
               onChange={handleDate}
             ></input>
           </div>
@@ -52,6 +46,17 @@ const UpdateReservation = (props) => {
               name="text"
               value={text}
               onChange={handleText}
+            ></input>
+          </div>
+          <div>
+            <label>numberOfGuests:</label>
+            <input
+              className="logInput"
+              type="number"
+              placeholder="Please enter number of guest"
+              name="number"
+              value={numberOfGuests}
+              onChange={handleNumberOfGuests}
             ></input>
           </div>
         </div>
