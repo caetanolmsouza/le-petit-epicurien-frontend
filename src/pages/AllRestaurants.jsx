@@ -3,14 +3,13 @@ import RestaurantCard from '../components/RestaurantCard'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5005'
-
 const AllRestaurants = () => {
+  console.log(process.env.REACT_APP_API_URL)
   const [restaurants, setRestaurants] = useState([])
 
   const getAllProjects = () => {
     axios
-      .get(`${API_URL}/api/restaurant/restaurants`)
+      .get(`${process.env.REACT_APP_API_URL}api/restaurant/restaurants`)
       .then((response) => {
         console.log(response.data)
         setRestaurants(response.data)

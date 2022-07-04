@@ -24,7 +24,6 @@ const RestaurantDetails = () => {
   }
 
   console.log('galleryPictures', restaurant.galleryPictures)
-  console.log('marketingOffer', restaurant.marketingOffer)
 
   return (
     <div>
@@ -44,7 +43,7 @@ const RestaurantDetails = () => {
           <p>{restaurant.localisation?.address?.street_name}</p>
           <p>{restaurant.priceRange}</p>
           <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
-          <p>marketingOffer</p>
+          <p>{restaurant.marketingOffer.title}</p>
           <p>galleryPictures</p>
         </div>
       </div>
