@@ -9,12 +9,10 @@ const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null)
 
   useEffect(() => {
-    axios
-      .get(`https://le-petit-epicurien.herokuapp.com/restaurants/${id}`)
-      .then((reponse) => {
-        console.log('reponseData', reponse.data)
-        setRestaurant(reponse.data)
-      })
+    axios.get(`http://localhost:5005/api/restaurant/${id}`).then((response) => {
+      console.log('reponseData', response.data)
+      setRestaurant(response.data)
+    })
   }, [])
 
   if (!restaurant) {
@@ -24,6 +22,8 @@ const RestaurantDetails = () => {
       </div>
     )
   }
+
+  console.log('galleryPictures', restaurant.galleryPictures)
 
   return (
     <div>
@@ -44,7 +44,7 @@ const RestaurantDetails = () => {
           <p>{restaurant.priceRange}</p>
           <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
           <p>{restaurant.marketingOffer}</p>
-          <p>{restaurant.galleryPictures}</p>
+          <p>galleryPictures</p>
         </div>
       </div>
     </div>
