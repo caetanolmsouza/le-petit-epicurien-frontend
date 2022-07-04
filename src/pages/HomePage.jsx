@@ -1,8 +1,11 @@
 import React from 'react'
+import './HomePage.css'
+import img from '../assets/homeImage2.jpeg'
 
 const Home = () => {
   return (
-    <div>
+    <div className="homepage">
+      <img src={img}></img>
       <h1>Le Petit Épicurien</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
