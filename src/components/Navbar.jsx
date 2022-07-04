@@ -1,21 +1,23 @@
-import React from "react";
-import "../App.css";
-import Search from "./Search";
+import React from "react"
+import { Link } from "react-router-dom"
+import "../App.css"
+import Search from "./Search"
 
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbarUpButtons">
-        <button>Home</button>
-        <button>My Reservations</button>
+        <Link to="/">Home</Link>
+        <Link to="/restaurants">Restaurants</Link>
+        <Link to="/reservations">my Reservations</Link>
         <div>
-          <button>SignUp</button>
-          <button>LogIn</button>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/login">Log In</Link>
         </div>
       </div>
       <Search />
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
