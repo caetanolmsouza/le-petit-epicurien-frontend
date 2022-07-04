@@ -1,35 +1,33 @@
-import { text } from "body-parser";
-import Input from "rc-input";
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const API_URL = "http://localhost:5005";
+const API_URL = 'http://localhost:5005'
 
 const UpdateReservation = (props) => {
-  const [date, setDate] = useState("");
-  const [text, setText] = useState("");
-  const handleDate = (e) => setDate(e.target.value);
-  const handleText = (e) => setText(e.target.value);
+  const [date, setDate] = useState('')
+  const [text, setText] = useState('')
+  const handleDate = (e) => setDate(e.target.value)
+  const handleText = (e) => setText(e.target.value)
 
   const handleSignupSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     axios({
-      url: "api/reservation/:id",
+      url: 'api/reservation/:id',
       baseURL: API_URL,
-      method: "patch",
+      method: 'patch',
       data: {
         date,
         text,
       },
     })
       .then((response) => {
-        console.log("good", response.data);
+        console.log('good', response.data)
       })
       .catch((err) => {
-        console.log("bad", err.response.data);
-      });
-  };
+        console.log('bad', err.response.data)
+      })
+  }
   return (
     <>
       <form onSubmit={handleSignupSubmit}>
@@ -60,7 +58,7 @@ const UpdateReservation = (props) => {
         <button type="submit">Save</button>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default UpdateReservation;
+export default UpdateReservation

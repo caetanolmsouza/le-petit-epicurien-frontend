@@ -1,29 +1,27 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Input from "rc-input";
-import UpdateReservation from "../components/UpdateReservation";
+import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const API_URL = "http://localhost:5005";
+const API_URL = 'http://localhost:5005'
 
 const AllReservations = () => {
-  const [reservations, setReservations] = useState([]);
+  const [reservations, setReservations] = useState([])
   const getAllReservations = () => {
     axios
       .get(`${API_URL}/api/reservation/`)
       .then((response) => setReservations(response.data))
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   useEffect(() => {
-    getAllReservations();
-  }, []);
+    getAllReservations()
+  }, [])
 
-  console.log(getAllReservations);
+  console.log(getAllReservations)
 
   const deleteReservation = async (id) => {
-    await axios.delete(`${API_URL}/api/reservation/${id}`);
-    getAllReservations();
+    await axios.delete(`${API_URL}/api/reservation/${id}`)
+    getAllReservations()
 
     // axios.delete
     // call the function getAllReservations
@@ -32,11 +30,11 @@ const AllReservations = () => {
     // (reservation) => reservation._id !== id
     //);
     //setReservations(reservationToKeep);
-  };
+  }
 
   const editReservation = (id, name, date) => {
-    console.log("edit rese...", name, " ", id, "", date);
-  };
+    console.log('edit rese...', name, ' ', id, '', date)
+  }
 
   return (
     <>
@@ -51,9 +49,7 @@ const AllReservations = () => {
               Delete Reservation
             </button>
             <button
-              onClick={() =>
-                editReservation(reservation._id, reservation.date, text)
-              }
+              onClick={() => editReservation(reservation._id, reservation.date)}
             >
               Update Reservation
             </button>
@@ -61,7 +57,7 @@ const AllReservations = () => {
         ))}
       </ul>
     </>
-  );
-};
+  )
+}
 
-export default AllReservations;
+export default AllReservations
