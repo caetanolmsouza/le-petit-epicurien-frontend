@@ -8,6 +8,7 @@ import { AuthContext } from '../context/auth.context'
 const API_URL = 'http://localhost:5005'
 
 const LoginForm = () => {
+  console.log(process.env.API_URL)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState(undefined)
