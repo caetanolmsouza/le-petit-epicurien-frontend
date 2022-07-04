@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Input from "rc-input";
+import UpdateReservation from "../components/UpdateReservation";
 
 const API_URL = "http://localhost:5005";
 
@@ -16,6 +18,7 @@ const AllReservations = () => {
   useEffect(() => {
     getAllReservations();
   }, []);
+
   console.log(getAllReservations);
 
   const deleteReservation = async (id) => {
@@ -31,6 +34,10 @@ const AllReservations = () => {
     //setReservations(reservationToKeep);
   };
 
+  const editReservation = (id, name, date) => {
+    console.log("edit rese...", name, " ", id, "", date);
+  };
+
   return (
     <>
       <h1> My Reservations</h1>
@@ -43,7 +50,13 @@ const AllReservations = () => {
             <button onClick={() => deleteReservation(reservation._id)}>
               Delete Reservation
             </button>
-            <button>Update Reservation</button>
+            <button
+              onClick={() =>
+                editReservation(reservation._id, reservation.date, text)
+              }
+            >
+              Update Reservation
+            </button>
           </li>
         ))}
       </ul>

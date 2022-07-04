@@ -2,8 +2,12 @@ import React from "react";
 import Paris from "../assets/Paris.png";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import Signup from "../components/Signup";
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "antd";
+import Login from "../components/Login";
 
 const API_URL = "http://localhost:5005";
 
@@ -12,6 +16,7 @@ const Home = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [showForm, setShowForm] = useState(true);
 
   const navigate = useNavigate();
 
@@ -39,52 +44,22 @@ const Home = () => {
         console.log("bad", err.response.data);
       });
   };
+
+  const CheckLogin = () => {
+    setShowForm(false);
+    console.log(showForm, "checking");
+  };
+
+  const CheckSignUp = () => {
+    setShowForm(true);
+    console.log(showForm, "checking");
+  };
+
   return (
     <div>
-      <div className="loginDiv">
-        <h1>Le Petit Épicurien</h1>
-        <form onSubmit={handleSignupSubmit}>
-          <div className="userMailPassDiv">
-            <div>
-              <label>Username:</label>
-              <input
-                className="logInput"
-                type="text"
-                placeholder="Your username"
-                name="username"
-                value={username}
-                onChange={handleUsername}
-              ></input>
-            </div>
-            <div>
-              <label>Email:</label>
-              <input
-                className="logInput"
-                placeholder="Your email"
-                type="email"
-                name="email"
-                value={email}
-                onChange={handleEmail}
-              ></input>
-            </div>
-            <div>
-              <label>Password:</label>
-              <input
-                className="logInput"
-                type="password"
-                placeholder="*******"
-                name="password"
-                value={password}
-                onChange={handlePassword}
-              ></input>
-            </div>
-          </div>
-          <div>
-            <button>LogIn</button>
-            <button type="submit">SignUp</button>
-          </div>
-        </form>
-      </div>
+      {showForm ? <Signup /> : <Login />}
+      <Button onClick={CheckLogin}>sign in</Button>
+      <Button onClick={CheckSignUp}>sign Up</Button>
     </div>
   );
 };
