@@ -2,8 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
-const API_URL = 'http://localhost:5005'
+import { API_URL } from '../constants'
 
 const SignupForm = () => {
   const [email, setEmail] = useState('')
@@ -21,7 +20,7 @@ const SignupForm = () => {
     e.preventDefault()
 
     axios({
-      url: '/api/auth/signup',
+      url: '/auth/signup',
       baseURL: API_URL,
       method: 'post',
       data: {

@@ -5,9 +5,13 @@ import CreateNewReservationForm from '../components/CreateNewReservationForm'
 const Restaurant = () => {
   return (
     <section>
-      <h2>Restaurant</h2>
-      <RestaurantDetails />
-      <CreateNewReservationForm />
+      <div>
+        <h2>Restaurant</h2>
+        <RestaurantDetails />
+      </div>
+      <div>
+        <CreateNewReservationForm />
+      </div>
     </section>
   )
 }

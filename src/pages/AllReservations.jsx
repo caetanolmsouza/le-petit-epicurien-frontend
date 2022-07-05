@@ -3,8 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import UpdateReservation from '../components/UpdateReservation'
 import { AuthContext } from '../context/auth.context'
-
-const API_URL = 'http://localhost:5005'
+import { API_URL } from '../constants'
 
 const AllReservations = () => {
   const [reservations, setReservations] = useState([])
@@ -33,7 +32,7 @@ const AllReservations = () => {
   const handleUpdateSubmit = (e, id, { text, date, numberOfGuests }) => {
     e.preventDefault()
     axios({
-      url: `api/reservation/${id}`,
+      url: `/reservation/${id}`,
       baseURL: API_URL,
       method: 'patch',
       data: {
