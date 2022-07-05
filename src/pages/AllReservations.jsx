@@ -1,8 +1,9 @@
-import React from 'react'
 import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
-import ReservationForm from '../components/ReservationForm'
+
 import { AuthContext } from '../context/auth.context'
+import ReservationForm from '../components/ReservationForm'
+
 import { API_URL } from '../constants'
 
 const AllReservations = () => {
