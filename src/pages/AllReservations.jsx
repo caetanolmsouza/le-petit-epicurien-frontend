@@ -11,7 +11,7 @@ const AllReservations = () => {
 
   const getAllReservations = () => {
     axios
-      .get(`${API_URL}/api/reservation/`, {
+      .get(`${API_URL}/reservation/`, {
         headers: { Authorization: `Bearer ${context.getToken()}` },
       })
       .then((response) => {
