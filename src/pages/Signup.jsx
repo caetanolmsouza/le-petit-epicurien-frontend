@@ -8,7 +8,10 @@ const Signup = () => {
       <h1 className="h1LogDiv">Le Petit Épicurien</h1>
       <SignupForm />
       <p className="needAccount">
-        Already have an account? Go to <Link to="/login">Login</Link>.
+        Already have an account? Go to{' '}
+        <Link className="linksignLog" to="/login">
+          Login
+        </Link>
       </p>
     </div>
   )
