@@ -4,7 +4,7 @@ import axios from 'axios'
 import { AuthContext } from '../context/auth.context'
 import ReservationForm from '../components/ReservationForm'
 
-import { API_URL } from '../constants'
+import { API_URL, formatAsWeekdayDateMonth } from '../constants'
 
 const AllReservations = () => {
   const [reservations, setReservations] = useState([])
@@ -61,7 +61,7 @@ const AllReservations = () => {
   }
 
   const deleteReservation = async (id) => {
-    await axios.delete(`${API_URL}/api/reservation/${id}`)
+    await axios.delete(`${API_URL}/reservation/${id}`)
     getAllReservations()
 
     // axios.delete
@@ -93,7 +93,8 @@ const AllReservations = () => {
           <li key={reservation._id}>
             Restaurant-
             {reservation.restaurant.name} booked for -
-            {reservation.numberOfGuests} people
+            {reservation.numberOfGuests} people{' '}
+            {formatAsWeekdayDateMonth(reservation.date)}
             <button onClick={() => deleteReservation(reservation._id)}>
               Delete Reservation
             </button>
