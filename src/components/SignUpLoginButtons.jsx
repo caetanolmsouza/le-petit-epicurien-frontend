@@ -5,8 +5,9 @@ import { AuthContext } from '../context/auth.context'
 import { Button } from 'antd'
 
 const SignUpLoginButtons = () => {
-  const { isLoggedIn } = useContext(AuthContext)
+  const { isLoggedIn, removeToken } = useContext(AuthContext)
   console.log(isLoggedIn)
+
   return (
     <>
       {!isLoggedIn ? (
@@ -19,7 +20,7 @@ const SignUpLoginButtons = () => {
           </Link>
         </div>
       ) : (
-        <Button> logout</Button>
+        <Button onClick={removeToken}>logout</Button>
       )}
     </>
   )
