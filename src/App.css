@@ -203,3 +203,29 @@ a {
   position: relative;
   top: 20%;
 }
+
+.reservDetails {
+  position: absolute;
+  top: 10%;
+  left: 53%;
+}
+
+.h2RestDetails {
+  font-weight: bold;
+  color: darkgoldenrod;
+  font-size: 2rem;
+  padding-bottom: 4%;
+}
+
+.logoutButton {
+  background-color: rgb(148, 0, 171);
+  color: white;
+  position: relative;
+  top: 30%;
+}
+
+.h2Restaurant {
+  color: rgb(184, 11, 11);
+  font-size: 2rem;
+  font-weight: bold;
+}

@@ -7,6 +7,8 @@ import { API_URL } from '../constants'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
 
+import '../App.css'
+
 const Restaurant = () => {
   const { id } = useParams()
 
@@ -43,10 +45,11 @@ const Restaurant = () => {
   return (
     <section>
       <div>
-        <h2>Restaurant</h2>
+        <h2 className="h2Restaurant">Restaurant</h2>
         <RestaurantDetails />
       </div>
-      <div>
+      <div className="reservDetails">
+        <h2 className="h2RestDetails">Reservations</h2>
         {isLoggedIn ? (
           <ReservationForm handleSubmit={handleCreateReservation} />
         ) : (

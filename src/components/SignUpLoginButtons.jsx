@@ -20,7 +20,9 @@ const SignUpLoginButtons = () => {
           </Link>
         </div>
       ) : (
-        <Button onClick={removeToken}>logout</Button>
+        <Button className="logoutButton" onClick={removeToken}>
+          Logout
+        </Button>
       )}
     </>
   )
