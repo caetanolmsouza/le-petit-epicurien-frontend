@@ -6,11 +6,13 @@
 }
 
 p {
-  color: white;
+  color: black;
 }
 
 img {
-  padding: 70px 0px 0px 0px;
+  position: relative;
+  right: 10%;
+  width: 120%;
 }
 
 h1 {

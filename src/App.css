@@ -2,6 +2,11 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+  background-image: url('./assets/wall.jpg');
+  background-size: cover;
+}
+
 .navbar {
   background-color: rgb(108, 141, 130);
   height: 5rem;
@@ -143,4 +148,8 @@ a {
 .linksignLog {
   color: rgb(148, 0, 171);
   text-decoration: underline;
+}
+
+.singleRestaurantImage {
+  width: 60%;
 }
