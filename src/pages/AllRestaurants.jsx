@@ -12,7 +12,11 @@ const AllRestaurants = () => {
   const [search, setSearch] = useState('')
 
   const restaurantToDisplay = restaurants.filter((restaurant) => {
-    return restaurant.name.toLowerCase().includes(search.toLowerCase())
+    if (restaurant.name) {
+      return restaurant.name.toLowerCase().includes(search.toLowerCase())
+    } else {
+      return false
+    }
   })
 
   const getAllProjects = () => {
@@ -34,7 +38,11 @@ const AllRestaurants = () => {
 
   useEffect(() => {
     const result = restaurants.filter((restaurant) => {
-      return restaurant.name.toLowerCase().includes(search.toLowerCase())
+      if (restaurant.name) {
+        return restaurant.name.toLowerCase().includes(search.toLowerCase())
+      } else {
+        return false
+      }
     })
     setFilteredRestaurants(result)
   }, [search, restaurants])

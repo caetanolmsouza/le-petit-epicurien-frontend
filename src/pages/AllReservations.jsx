@@ -5,6 +5,7 @@ import { AuthContext } from '../context/auth.context'
 import ReservationForm from '../components/ReservationForm'
 
 import { API_URL, formatAsWeekdayDateMonth } from '../constants'
+import '../App.css'
 
 const AllReservations = () => {
   const [reservations, setReservations] = useState([])
@@ -87,19 +88,25 @@ const AllReservations = () => {
   }
   if (!reservations.length) return <p>No reservations yet</p>
   return (
-    <>
-      <h1> My Reservations</h1>
+    <div>
+      <h1 className="h1MyReserv"> My Reservations</h1>
       <ul>
         {reservations.map((reservation) => (
-          <li key={reservation._id}>
+          <li className="myReservTexts" key={reservation._id}>
             Restaurant-
             {reservation.restaurant.name} booked for -
             {reservation.numberOfGuests} people{' '}
             {formatAsWeekdayDateMonth(reservation.date)}
-            <button onClick={() => deleteReservation(reservation._id)}>
+            <button
+              className="delButton"
+              onClick={() => deleteReservation(reservation._id)}
+            >
               Delete Reservation
             </button>
-            <button onClick={() => editReservation(reservation._id)}>
+            <button
+              className="myReservButtons updateButton"
+              onClick={() => editReservation(reservation._id)}
+            >
               Update Reservation
             </button>
             {reservation.showForm && (
@@ -114,7 +121,7 @@ const AllReservations = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   )
 }
 
