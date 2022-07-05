@@ -66,3 +66,7 @@ h1 {
 section {
   background: white;
 }
+
+a {
+  color: rgb(153, 35, 11);
+}

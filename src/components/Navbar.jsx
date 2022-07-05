@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../App.css'
-import Search from './Search'
 
 const Navbar = () => {
   return (
@@ -15,7 +13,6 @@ const Navbar = () => {
           <Link to="/login">Log In</Link>
         </div>
       </div>
-      <Search />
     </div>
   )
 }
