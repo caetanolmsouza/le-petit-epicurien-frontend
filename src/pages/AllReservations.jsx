@@ -1,15 +1,20 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import UpdateReservation from '../components/UpdateReservation'
+import { AuthContext } from '../context/auth.context'
 
 const API_URL = 'http://localhost:5005'
 
 const AllReservations = () => {
   const [reservations, setReservations] = useState([])
+  const context = useContext(AuthContext)
+
   const getAllReservations = () => {
     axios
-      .get(`${API_URL}/api/reservation/`)
+      .get(`${API_URL}/api/reservation/`, {
+        headers: { Authorization: `Bearer ${context.getToken()}` },
+      })
       .then((response) => {
         const reservationsWithShowForm = response.data.map((reservation) => {
           reservation.showForm = false
