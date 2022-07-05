@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { createContext, useCallback, useEffect, useState } from 'react'
+import { API_URL } from '../constants'
 
 // make a new React context
 const AuthContext = createContext()
@@ -37,7 +38,7 @@ const AuthContextWrapper = ({ children }) => {
     console.log(process.env.API_URL)
     axios({
       method: 'get',
-      baseURL: process.env.API_URL || 'http://localhost:5005/',
+      baseURL: API_URL || 'http://localhost:5005/',
       url: '/auth/verify',
       headers: {
         Authorization: `Bearer ${token}`,

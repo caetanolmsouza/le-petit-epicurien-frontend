@@ -4,14 +4,17 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Search from '../components/Search'
 import { Col, Row } from 'antd'
+import { API_URL } from '../constants'
 
 const AllRestaurants = () => {
-  console.log(process.env.REACT_APP_API_URL)
   const [restaurants, setRestaurants] = useState([])
 
   const getAllProjects = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}api/restaurant/restaurants`)
+    axios({
+      method: 'get',
+      url: '/restaurant/restaurants',
+      baseURL: API_URL,
+    })
       .then((response) => {
         console.log(response.data)
         setRestaurants(response.data)
