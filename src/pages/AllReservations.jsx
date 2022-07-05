@@ -31,7 +31,7 @@ const AllReservations = () => {
     getAllReservations()
   }, [])
 
-  const handleUpdateSubmit = (e, id, { text, date, numberOfGuests }) => {
+  const handleUpdateSubmit = (e, id, { text, date, time, numberOfGuests }) => {
     e.preventDefault()
     axios({
       url: `/reservation/${id}`,
@@ -39,6 +39,7 @@ const AllReservations = () => {
       method: 'patch',
       data: {
         date,
+        time,
         text,
         numberOfGuests,
       },

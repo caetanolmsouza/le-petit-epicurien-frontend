@@ -5,8 +5,11 @@ import { formatAsInputDate } from '../constants'
 const ReservationForm = (props) => {
   const [date, setDate] = useState(props.date)
   const [text, setText] = useState(props.text)
+  const [time, setTime] = useState(props.time)
   const [numberOfGuests, setNumberOfGuests] = useState(props.numberOfGuests)
   const handleDate = (e) => setDate(new Date(e.target.value))
+  const handleTime = (e) => setTime(e.target.value)
+
   const handleText = (e) => setText(e.target.value)
   const handleNumberOfGuests = (e) => setNumberOfGuests(e.target.value)
 
@@ -14,7 +17,7 @@ const ReservationForm = (props) => {
     <div className="reservationFormDiv">
       <form
         onSubmit={(e) =>
-          props.handleSubmit(e, props.id, { text, date, numberOfGuests })
+          props.handleSubmit(e, props.id, { text, date, time, numberOfGuests })
         }
       >
         <div className="userMailPassDiv">
@@ -30,7 +33,19 @@ const ReservationForm = (props) => {
             ></input>
           </div>
           <div>
-            <label className="myReservLabels">Name:</label>
+            <label>Time:</label>
+            <input
+              className="logInput"
+              type="time"
+              placeholder="reservation date"
+              name="time"
+              value={time}
+              onChange={handleTime}
+            ></input>
+          </div>
+          <div>
+            <label>Special Request</label>
+
             <input
               className="logInput"
               type="text"
@@ -52,6 +67,7 @@ const ReservationForm = (props) => {
             ></input>
           </div>
         </div>
+
         <button className="myReservSaveButton" type="submit">
           Save
         </button>
