@@ -93,7 +93,9 @@ a {
 }
 
 .needAccount {
-  padding-top: 60px;
+  position: relative;
+  bottom: 15px;
+
 }
 
 .logButton {
