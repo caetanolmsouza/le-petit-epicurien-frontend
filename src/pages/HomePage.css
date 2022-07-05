@@ -14,5 +14,12 @@ img {
 }
 
 h1 {
-  color: rgb(205, 199, 12);
+  color: rgb(172, 172, 2);
+  font-weight: bold;
+}
+
+a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px;
 }

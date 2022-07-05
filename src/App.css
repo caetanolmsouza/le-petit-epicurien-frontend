@@ -68,5 +68,11 @@ section {
 }
 
 a {
-  color: rgb(153, 35, 11);
+  color: rgba(232, 185, 0, 0.918);
+}
+
+.SignLogButtons {
+  padding: 30px 10px 0px 10px;
+  position: relative;
+  top: 1rem;
 }
