@@ -1,8 +1,7 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 
-const UpdateReservation = (props) => {
+const ReservationForm = (props) => {
   const [date, setDate] = useState(props.date)
   const [text, setText] = useState(props.text)
   const [numberOfGuests, setNumberOfGuests] = useState(props.numberOfGuests)
@@ -11,16 +10,18 @@ const UpdateReservation = (props) => {
   const handleNumberOfGuests = (e) => setNumberOfGuests(e.target.value)
 
   let dateString =
+    date &&
     date.getFullYear().toString().padStart(4, '0') +
-    '-' +
-    (date.getMonth() + 1).toString().padStart(2, '0') +
-    '-' +
-    date.getDate().toString().padStart(2, '0')
+      '-' +
+      (date.getMonth() + 1).toString().padStart(2, '0') +
+      '-' +
+      date.getDate().toString().padStart(2, '0')
+
   return (
     <>
       <form
         onSubmit={(e) =>
-          props.handleUpdateSubmit(e, props.id, { text, date, numberOfGuests })
+          props.handleSubmit(e, props.id, { text, date, numberOfGuests })
         }
       >
         <div className="userMailPassDiv">
@@ -64,4 +65,4 @@ const UpdateReservation = (props) => {
   )
 }
 
-export default UpdateReservation
+export default ReservationForm

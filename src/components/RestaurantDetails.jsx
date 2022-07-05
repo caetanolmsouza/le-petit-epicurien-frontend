@@ -49,7 +49,7 @@ const RestaurantDetails = () => {
           <p>{restaurant.localisation?.address?.city}</p>
           <p>{restaurant.priceRange}</p>
           <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
-          <p>{restaurant.marketingOffer.title}</p>
+          <p>{restaurant.marketingOffer?.title}</p>
           <p>galleryPictures</p>
         </div>
       </div>

@@ -1,8 +1,9 @@
-import React from 'react'
 import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
-import UpdateReservation from '../components/UpdateReservation'
+
 import { AuthContext } from '../context/auth.context'
+import ReservationForm from '../components/ReservationForm'
+
 import { API_URL } from '../constants'
 
 const AllReservations = () => {
@@ -100,12 +101,12 @@ const AllReservations = () => {
               Update Reservation
             </button>
             {reservation.showForm && (
-              <UpdateReservation
+              <ReservationForm
                 date={reservation.date}
                 text={reservation.text}
                 numberOfGuests={reservation.numberOfGuests}
                 id={reservation._id}
-                handleUpdateSubmit={handleUpdateSubmit}
+                handleSubmit={handleUpdateSubmit}
               />
             )}
           </li>
