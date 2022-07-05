@@ -6,9 +6,9 @@ import LoginForm from '../components/LoginForm'
 const Login = () => {
   return (
     <div className="loginDiv">
-      <h1>Le Petit Épicurien</h1>
+      <h1 className="h1LogDiv">Le Petit Épicurien</h1>
       <LoginForm />
-      <p>
+      <p className="needAccount">
         Need an account? Go to <Link to="/signup">Signup</Link>.
       </p>
     </div>

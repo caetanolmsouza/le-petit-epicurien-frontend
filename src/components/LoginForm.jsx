@@ -48,7 +48,7 @@ const LoginForm = () => {
     <form onSubmit={handleSignupSubmit}>
       <div className="userMailPassDiv">
         <div>
-          <label>Email:</label>
+          <label className="labelLogSign">Email:</label>
           <input
             className="logInput"
             placeholder="Your email"
@@ -59,7 +59,7 @@ const LoginForm = () => {
           ></input>
         </div>
         <div>
-          <label>Password:</label>
+          <label className="labelLogSign">Password:</label>
           <input
             className="logInput"
             type="password"
@@ -71,7 +71,7 @@ const LoginForm = () => {
         </div>
       </div>
       <div>
-        <input type="submit" value="Log In" />
+        <input className="logButton" type="submit" value="Log In" />
       </div>
     </form>
   )

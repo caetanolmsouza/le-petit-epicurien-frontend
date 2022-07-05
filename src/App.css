@@ -39,7 +39,7 @@
   left: 35%;
   top: 200px;
   border-radius: 3%;
-  background-color: rgb(189, 196, 176);
+  background-color: rgb(0, 149, 99);
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -55,7 +55,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  gap: 50px;
+  row-gap: 20px;
 }
 
 h1 {
@@ -75,4 +75,28 @@ a {
   padding: 30px 10px 0px 10px;
   position: relative;
   top: 1rem;
+}
+
+.labelLogSign {
+  padding: 0px 80px 0px 0px;
+  font-weight: bold;
+}
+
+.h1LogDiv {
+  color: rgb(240, 139, 196);
+  font-size: 2.7rem;
+}
+
+.signButton {
+  position: relative;
+  top: 20px;
+}
+
+.needAccount {
+  padding-top: 60px;
+}
+
+.logButton {
+  position: relative;
+  top: 40px;
 }

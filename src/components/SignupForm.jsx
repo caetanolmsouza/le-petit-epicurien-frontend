@@ -41,7 +41,7 @@ const SignupForm = () => {
     <form onSubmit={handleSignupSubmit}>
       <div className="userMailPassDiv">
         <div>
-          <label>Username:</label>
+          <label className="labelLogSign">Username:</label>
           <input
             className="logInput"
             type="text"
@@ -52,7 +52,7 @@ const SignupForm = () => {
           ></input>
         </div>
         <div>
-          <label>Email:</label>
+          <label className="labelLogSign">Email:</label>
           <input
             className="logInput"
             placeholder="Your email"
@@ -63,7 +63,7 @@ const SignupForm = () => {
           ></input>
         </div>
         <div>
-          <label>Password:</label>
+          <label className="labelLogSign">Password:</label>
           <input
             className="logInput"
             type="password"
@@ -75,7 +75,7 @@ const SignupForm = () => {
         </div>
       </div>
       <div>
-        <input type="submit" value="Sign Up" />
+        <input className="signButton" type="submit" value="Sign Up" />
       </div>
     </form>
   )
