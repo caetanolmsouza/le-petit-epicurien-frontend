@@ -50,7 +50,6 @@ const RestaurantDetails = () => {
           <p>{restaurant.priceRange}</p>
           <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
           <p>{restaurant.marketingOffer?.title}</p>
-          <p>galleryPictures</p>
         </div>
       </div>
     </div>
