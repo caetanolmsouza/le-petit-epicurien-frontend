@@ -5,7 +5,7 @@ import img from '../assets/homeImage2.jpeg'
 const Home = () => {
   return (
     <div className="homepage">
-      <img src={img}></img>
+      <img src={img} alt="food" />
       <h1>Le Petit Épicurien</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure

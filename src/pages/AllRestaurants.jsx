@@ -2,6 +2,8 @@ import React from 'react'
 import RestaurantCard from '../components/RestaurantCard'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Search from '../components/Search'
+import { Col, Row } from 'antd'
 
 const AllRestaurants = () => {
   console.log(process.env.REACT_APP_API_URL)
@@ -23,9 +25,15 @@ const AllRestaurants = () => {
   // console.log(getAllProjects)
   return (
     <div>
-      {restaurants.map((restaurant) => (
-        <RestaurantCard key={restaurant._id} {...restaurant} />
-      ))}
+      <Search />
+
+      <Row style={{ width: '100%', justifyContent: 'center' }}>
+        {restaurants.map((restaurant) => (
+          <Col key={restaurant._id}>
+            <RestaurantCard {...restaurant} />
+          </Col>
+        ))}
+      </Row>
     </div>
   )
 }

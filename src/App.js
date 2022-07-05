@@ -1,11 +1,13 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
+
+import 'antd/dist/antd.css'
+import './App.css'
+
 import Navbar from './components/Navbar'
 import Home from './pages/HomePage'
 import AllRestaurants from './pages/AllRestaurants'
 import AllReservations from './pages/AllReservations'
 import Restaurant from './pages/Restaurant'
-import './App.css'
-import './pages/HomePage.css'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 
