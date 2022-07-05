@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { formatAsInputDate } from '../constants'
 
 const ReservationForm = (props) => {
   const [date, setDate] = useState(props.date)
@@ -8,14 +9,6 @@ const ReservationForm = (props) => {
   const handleDate = (e) => setDate(new Date(e.target.value))
   const handleText = (e) => setText(e.target.value)
   const handleNumberOfGuests = (e) => setNumberOfGuests(e.target.value)
-
-  let dateString =
-    date &&
-    date.getFullYear().toString().padStart(4, '0') +
-      '-' +
-      (date.getMonth() + 1).toString().padStart(2, '0') +
-      '-' +
-      date.getDate().toString().padStart(2, '0')
 
   return (
     <>
@@ -32,7 +25,7 @@ const ReservationForm = (props) => {
               type="date"
               placeholder="reservation date"
               name="date"
-              value={dateString}
+              value={formatAsInputDate(date)}
               onChange={handleDate}
             ></input>
           </div>
