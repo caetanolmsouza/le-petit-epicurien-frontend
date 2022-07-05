@@ -41,6 +41,7 @@ const RestaurantDetails = () => {
           </h2>
           <h3>{restaurant.cuisine}</h3>
           <p>{restaurant.localisation?.address?.street_name}</p>
+          <p>{restaurant.localisation?.address?.city}</p>
           <p>{restaurant.priceRange}</p>
           <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
           <p>{restaurant.marketingOffer}</p>
