@@ -8,6 +8,7 @@ import { API_URL } from '../constants'
 
 const AllRestaurants = () => {
   const [restaurants, setRestaurants] = useState([])
+  const [filteredRestaurants, setFilteredRestaurants] = useState([])
   const [search, setSearch] = useState('')
 
   const restaurantToDisplay = restaurants.filter((restaurant) => {
@@ -30,31 +31,26 @@ const AllRestaurants = () => {
   useEffect(() => {
     getAllProjects()
   }, [])
+
+  useEffect(() => {
+    const result = restaurants.filter((restaurant) => {
+      return restaurant.name.toLowerCase().includes(search.toLowerCase())
+    })
+    setFilteredRestaurants(result)
+  }, [search, restaurants])
+
   // console.log(getAllProjects)
   return (
     <div>
       <Search search={search} setSearch={setSearch} />
 
       <Row style={{ width: '100%', justifyContent: 'center' }}>
-        {restaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <Col key={restaurant._id}>
             <RestaurantCard {...restaurant} />
           </Col>
         ))}
       </Row>
-      {/* test */}
-      <Row style={{ width: '100%', justifyContent: 'center' }}>
-        {/* Render the list of Food Box components here */}
-        {restaurantToDisplay.length > 0 ? (
-          restaurantToDisplay.map((restaurant) => {
-            // console.log(food);
-            return <RestaurantCard key={restaurant.image} {...restaurant} />
-          })
-        ) : (
-          <p>No food :/</p>
-        )}
-      </Row>
-      {/* teste */}
     </div>
   )
 }
