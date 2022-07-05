@@ -38,7 +38,7 @@ const AuthContextWrapper = ({ children }) => {
     console.log(process.env.API_URL)
     axios({
       method: 'get',
-      baseURL: API_URL || 'http://localhost:5005/',
+      baseURL: API_URL,
       url: '/auth/verify',
       headers: {
         Authorization: `Bearer ${token}`,
