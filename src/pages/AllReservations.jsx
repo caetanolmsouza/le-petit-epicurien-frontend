@@ -79,7 +79,7 @@ const AllReservations = () => {
     setReservations(updatedReservations)
     console.log(' ', id)
   }
-
+  if (!reservations.length) return <p>No reservations yet</p>
   return (
     <>
       <h1> My Reservations</h1>
