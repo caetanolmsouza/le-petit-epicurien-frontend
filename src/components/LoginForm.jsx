@@ -4,8 +4,7 @@ import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
-
-const API_URL = 'http://localhost:5005'
+import { API_URL } from '../constants'
 
 const LoginForm = () => {
   console.log(process.env.API_URL)
@@ -24,7 +23,7 @@ const LoginForm = () => {
     e.preventDefault()
 
     axios({
-      url: '/api/auth/login',
+      url: '/auth/login',
       baseURL: API_URL,
       method: 'post',
       data: {

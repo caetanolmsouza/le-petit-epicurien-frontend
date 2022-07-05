@@ -1,15 +1,19 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import UpdateReservation from '../components/UpdateReservation'
-
-const API_URL = 'http://localhost:5005'
+import { AuthContext } from '../context/auth.context'
+import { API_URL } from '../constants'
 
 const AllReservations = () => {
   const [reservations, setReservations] = useState([])
+  const context = useContext(AuthContext)
+
   const getAllReservations = () => {
     axios
-      .get(`${API_URL}/api/reservation/`)
+      .get(`${API_URL}/api/reservation/`, {
+        headers: { Authorization: `Bearer ${context.getToken()}` },
+      })
       .then((response) => {
         const reservationsWithShowForm = response.data.map((reservation) => {
           reservation.showForm = false
@@ -28,7 +32,7 @@ const AllReservations = () => {
   const handleUpdateSubmit = (e, id, { text, date, numberOfGuests }) => {
     e.preventDefault()
     axios({
-      url: `api/reservation/${id}`,
+      url: `/reservation/${id}`,
       baseURL: API_URL,
       method: 'patch',
       data: {
@@ -79,7 +83,7 @@ const AllReservations = () => {
     setReservations(updatedReservations)
     console.log(' ', id)
   }
-
+  if (!reservations.length) return <p>No reservations yet</p>
   return (
     <>
       <h1> My Reservations</h1>
