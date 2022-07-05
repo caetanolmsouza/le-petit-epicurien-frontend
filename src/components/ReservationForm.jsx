@@ -11,7 +11,7 @@ const ReservationForm = (props) => {
   const handleNumberOfGuests = (e) => setNumberOfGuests(e.target.value)
 
   return (
-    <>
+    <div className="reservationFormDiv">
       <form
         onSubmit={(e) =>
           props.handleSubmit(e, props.id, { text, date, numberOfGuests })
@@ -19,7 +19,7 @@ const ReservationForm = (props) => {
       >
         <div className="userMailPassDiv">
           <div>
-            <label>Date:</label>
+            <label className="myReservLabels">Date:</label>
             <input
               className="logInput"
               type="date"
@@ -30,7 +30,7 @@ const ReservationForm = (props) => {
             ></input>
           </div>
           <div>
-            <label>text:</label>
+            <label className="myReservLabels">Name:</label>
             <input
               className="logInput"
               type="text"
@@ -41,7 +41,7 @@ const ReservationForm = (props) => {
             ></input>
           </div>
           <div>
-            <label>numberOfGuests:</label>
+            <label className="myReservLabels">Number Of Guests:</label>
             <input
               className="logInput"
               type="number"
@@ -52,9 +52,11 @@ const ReservationForm = (props) => {
             ></input>
           </div>
         </div>
-        <button type="submit">Save</button>
+        <button className="myReservSaveButton" type="submit">
+          Save
+        </button>
       </form>
-    </>
+    </div>
   )
 }
 
