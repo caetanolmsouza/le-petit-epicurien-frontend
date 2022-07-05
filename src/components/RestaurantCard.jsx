@@ -13,7 +13,7 @@ function RestaurantCard({
   return (
     <Card title={name} style={{ width: 230, height: 300, margin: 10 }}>
       <Link to={`/restaurants/${_id}`}>details</Link>
-      <img src={mainImage} height={160} alt="food" />
+      <img src={mainImage} height={160} alt="" />
       <p>cuisine: {cuisine}</p>
       <p>address: {localisation?.address?.street_name} </p>
       <p>average price: {priceRange}</p>
