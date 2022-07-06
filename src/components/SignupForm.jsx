@@ -30,6 +30,7 @@ const SignupForm = () => {
       },
     })
       .then((response) => {
+        navigate('/')
         console.log('good', response.data)
       })
       .catch((err) => {
