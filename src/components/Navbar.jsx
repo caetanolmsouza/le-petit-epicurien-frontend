@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="navbarUpButtons">
         <Link to="/">Home</Link>
         <Link to="/restaurants">Restaurants</Link>
-        {isLoggedIn && <Link to="/reservation">User Reservations</Link>}
+        {isLoggedIn && <Link to="/reservation">My Reservations</Link>}
         <div>
           <SignUpLoginButtons />
         </div>

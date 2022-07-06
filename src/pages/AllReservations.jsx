@@ -88,7 +88,7 @@ const AllReservations = () => {
   }
   if (!reservations.length) return <p>No reservations yet</p>
   return (
-    <div>
+    <div className="myReservDiv">
       <h1 className="h1MyReserv"> My Reservations</h1>
       <ul>
         {reservations.map((reservation) => (
