@@ -202,7 +202,6 @@ a {
 .myReservSaveButton {
   background-color: rgba(207, 250, 251, 0.918);
   position: relative;
-  top: 20%;
 }
 
 .reservDetails {
@@ -232,7 +231,7 @@ a {
 }
 
 .myReservDiv {
-  width: 40%;
+  width: 45%;
 }
 
 .reservDiv {
