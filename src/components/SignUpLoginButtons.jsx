@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
 import { Button } from 'antd'
@@ -7,6 +7,7 @@ import { Button } from 'antd'
 const SignUpLoginButtons = () => {
   const { isLoggedIn, removeToken } = useContext(AuthContext)
   console.log(isLoggedIn)
+  const navigate = useNavigate()
 
   return (
     <>
@@ -20,7 +21,13 @@ const SignUpLoginButtons = () => {
           </Link>
         </div>
       ) : (
-        <Button className="logoutButton" onClick={removeToken}>
+        <Button
+          className="logoutButton"
+          onClick={() => {
+            removeToken()
+            navigate('/')
+          }}
+        >
           Logout
         </Button>
       )}
