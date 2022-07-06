@@ -60,9 +60,14 @@ const AllRestaurants = () => {
   return (
     <div>
       <Search search={search} setSearch={setSearch} />
-      <button onClick={nextPage}>next page</button>
-      <button onClick={previousPage}>prev page</button>
-
+      <div className="nextPageButtonsDiv">
+        <button className="nextPrevPageButtons" onClick={previousPage}>
+          prev page
+        </button>
+        <button className="nextPrevPageButtons" onClick={nextPage}>
+          next page
+        </button>
+      </div>
       <Row style={{ width: '100%', justifyContent: 'center' }}>
         {filteredRestaurants.map((restaurant) => (
           <Col key={restaurant._id}>

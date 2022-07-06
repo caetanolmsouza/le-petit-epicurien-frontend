@@ -246,8 +246,26 @@ a {
   align-content: space-between;
   height: 15rem;
   flex-direction: column;
+  padding: 0% 2%;
 }
 
 .restName {
   color: rgba(232, 185, 0, 0.918);
+}
+
+.nextPrevPageButtons {
+  background-color: rgba(232, 185, 0, 0.918);
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.nextPageButtonsDiv {
+  display: flex;
+  align-content: space-around;
+  gap: 1440px;
+  padding-left: 3%;
+  bottom: 1rem;
+  position: relative;
 }
