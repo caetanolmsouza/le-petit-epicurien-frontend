@@ -44,10 +44,18 @@ const RestaurantDetails = () => {
               {restaurant.name}
             </Link>
           </h2>
-          <h3>{restaurant.cuisine}</h3>
-          <p>{restaurant.localisation?.address?.street_name}</p>
-          <p>{restaurant.localisation?.address?.city}</p>
-          <p>{restaurant.priceRange}</p>
+          <h3>
+            <b>Cuisine:</b> {restaurant.cuisine}
+          </h3>
+          <p>
+            <b>Address:</b> {restaurant.localisation?.address?.street_name}
+          </p>
+          <p>
+            <b>City:</b> {restaurant.localisation?.address?.city}
+          </p>
+          <p>
+            <b>Average Price:</b> {restaurant.priceRange}
+          </p>
           <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
           <p>{restaurant.marketingOffer?.title}</p>
         </div>

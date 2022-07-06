@@ -34,7 +34,7 @@ const Restaurant = () => {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
       .then((response) => {
-        alert('reservqtion creqted')
+        alert('reservation created')
         console.log('good', response.data)
       })
       .catch((err) => {

@@ -88,13 +88,13 @@ const AllReservations = () => {
   }
   if (!reservations.length) return <p>No reservations yet</p>
   return (
-    <div>
+    <div className="myReservDiv">
       <h1 className="h1MyReserv"> My Reservations</h1>
       <ul>
         {reservations.map((reservation) => (
           <li className="myReservTexts" key={reservation._id}>
-            Restaurant-
-            {reservation.restaurant.name} booked for -
+            <b>Restaurant:</b>{' '}
+            <b className="restName">{reservation.restaurant.name}</b>booked for{' '}
             {reservation.numberOfGuests} people{' '}
             {formatAsWeekdayDateMonth(reservation.date)}
             <button

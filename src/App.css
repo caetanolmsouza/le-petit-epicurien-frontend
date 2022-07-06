@@ -158,12 +158,13 @@ a {
 }
 
 .myReservTexts {
-  color: white;
-  padding: 10px 30px 0px 0px;
+  color: rgb(161, 161, 161);
+  padding: 60px 30px 0px 0px;
   font-size: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
 .delButton {
@@ -199,7 +200,7 @@ a {
 }
 
 .myReservSaveButton {
-  background-color: blueviolet;
+  background-color: rgba(207, 250, 251, 0.918);
   position: relative;
   top: 20%;
 }
@@ -218,7 +219,7 @@ a {
 }
 
 .logoutButton {
-  background-color: rgb(148, 0, 171);
+  background-color: rgba(232, 185, 0, 0.918);
   color: white;
   position: relative;
   top: 30%;
@@ -228,4 +229,25 @@ a {
   color: rgb(184, 11, 11);
   font-size: 2rem;
   font-weight: bold;
+}
+
+.myReservDiv {
+  width: 40%;
+}
+
+.reservDiv {
+  padding-bottom: 10%;
+}
+
+.singleInfoRestaurant {
+  font-size: 1rem;
+  width: 40%;
+  display: flex;
+  align-content: space-between;
+  height: 15rem;
+  flex-direction: column;
+}
+
+.restName {
+  color: rgba(232, 185, 0, 0.918);
 }
