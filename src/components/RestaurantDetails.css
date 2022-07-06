@@ -1,0 +1,8 @@
+.restaurant-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.restaurant-container img {
+  padding: 0;
+}

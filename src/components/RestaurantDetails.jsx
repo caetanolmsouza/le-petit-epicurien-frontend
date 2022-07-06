@@ -2,8 +2,12 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+
+import './RestaurantDetails.css'
+
 import { API_URL } from '../constants'
+import CarouselPicture from './CarouselPicture'
+import RestaurantInfo from './RestaurantInfo'
 
 const RestaurantDetails = () => {
   const { id } = useParams()
@@ -31,29 +35,13 @@ const RestaurantDetails = () => {
   console.log('galleryPictures', restaurant.galleryPictures)
 
   return (
-    <div>
-      <div className="restaurantContainer">
-        <img
-          className="singleRestaurantImage"
-          alt=""
-          src={restaurant.mainImage}
-        />
-        <div className="singleInfoRestaurant">
-          <h2>
-            <Link to={`/restaurantDetails/${restaurant._id}`}>
-              {restaurant.name}
-            </Link>
-          </h2>
-          <h3>{restaurant.cuisine}</h3>
-          <p>{restaurant.localisation?.address?.street_name}</p>
-          <p>{restaurant.localisation?.address?.city}</p>
-          <p>{restaurant.priceRange}</p>
-          <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
-          <p>{restaurant.marketingOffer?.title}</p>
-          <p>galleryPictures</p>
-        </div>
+    <>
+      <h1>{restaurant.name}</h1>
+      <div className="restaurant-container">
+        <CarouselPicture galleryPictures={restaurant.galleryPictures} />
+        <RestaurantInfo restaurant={restaurant} />
       </div>
-    </div>
+    </>
   )
 }
 

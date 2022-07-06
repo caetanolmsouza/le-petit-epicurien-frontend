@@ -8,7 +8,7 @@ const ReservationForm = (props) => {
   const [time, setTime] = useState(props.time)
   const [numberOfGuests, setNumberOfGuests] = useState(props.numberOfGuests)
   const handleDate = (e) => setDate(new Date(e.target.value))
-  const handleTime = (e) => setTime(e.target.value)
+  const handleTime = (e) => setTime(new Date(e.target.value))
 
   const handleText = (e) => setText(e.target.value)
   const handleNumberOfGuests = (e) => setNumberOfGuests(e.target.value)
