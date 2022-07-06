@@ -44,12 +44,10 @@ const Restaurant = () => {
 
   return (
     <section>
+
+      <RestaurantDetails />
       <div>
-        <h2 className="h2Restaurant">Restaurant</h2>
-        <RestaurantDetails />
-      </div>
-      <div className="reservDetails">
-        <h2 className="h2RestDetails">Reservations</h2>
+
         {isLoggedIn ? (
           <ReservationForm handleSubmit={handleCreateReservation} />
         ) : (
