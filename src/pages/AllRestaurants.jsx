@@ -5,45 +5,69 @@ import axios from 'axios'
 import Search from '../components/Search'
 import { Col, Row } from 'antd'
 import { API_URL } from '../constants'
+import Footer from 'rc-table/lib/Footer'
 
 const AllRestaurants = () => {
   const [restaurants, setRestaurants] = useState([])
   const [filteredRestaurants, setFilteredRestaurants] = useState([])
   const [search, setSearch] = useState('')
-
-  const restaurantToDisplay = restaurants.filter((restaurant) => {
-    return restaurant.name.toLowerCase().includes(search.toLowerCase())
-  })
-
-  const getAllProjects = () => {
-    axios({
-      method: 'get',
-      url: '/restaurant/restaurants',
-      baseURL: API_URL,
-    })
-      .then((response) => {
-        console.log(response.data)
-        setRestaurants(response.data)
-      })
-      .catch((error) => console.log(error))
-  }
+  const [page, setPage] = useState(1)
+  const [pageCount, setPageCount] = useState(100)
 
   useEffect(() => {
+    const getAllProjects = () => {
+      axios({
+        method: 'get',
+        url: '/restaurant/restaurants',
+        baseURL: API_URL,
+        params: { page },
+      })
+        .then((response) => {
+          console.log(response.data)
+          setRestaurants(response.data.results)
+        })
+        .catch((error) => console.log(error))
+    }
+
     getAllProjects()
-  }, [])
+  }, [page])
 
   useEffect(() => {
     const result = restaurants.filter((restaurant) => {
-      return restaurant.name.toLowerCase().includes(search.toLowerCase())
+      if (restaurant.name) {
+        return restaurant.name.toLowerCase().includes(search.toLowerCase())
+      } else {
+        return false
+      }
     })
     setFilteredRestaurants(result)
   }, [search, restaurants])
 
+  function previousPage() {
+    setPage((p) => {
+      if (p === 1) return p
+      return p - 1
+    })
+  }
+
+  function nextPage() {
+    setPage((p) => {
+      if (p === pageCount) return p
+      return p + 1
+    })
+  }
   // console.log(getAllProjects)
   return (
     <div>
       <Search search={search} setSearch={setSearch} />
-
+      <div className="nextPageButtonsDiv">
+        <button className="nextPrevPageButtons" onClick={previousPage}>
+          prev page
+        </button>
+        <button className="nextPrevPageButtons" onClick={nextPage}>
+          next page
+        </button>
+      </div>
       <Row style={{ width: '100%', justifyContent: 'center' }}>
         {filteredRestaurants.map((restaurant) => (
           <Col key={restaurant._id}>

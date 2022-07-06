@@ -7,6 +7,8 @@ import { API_URL } from '../constants'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
 
+import '../App.css'
+
 const Restaurant = () => {
   const { id } = useParams()
 
@@ -32,7 +34,7 @@ const Restaurant = () => {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
       .then((response) => {
-        alert('reservqtion creqted')
+        alert('reservation created')
         console.log('good', response.data)
       })
       .catch((err) => {
@@ -42,8 +44,10 @@ const Restaurant = () => {
 
   return (
     <section>
+
       <RestaurantDetails />
       <div>
+
         {isLoggedIn ? (
           <ReservationForm handleSubmit={handleCreateReservation} />
         ) : (

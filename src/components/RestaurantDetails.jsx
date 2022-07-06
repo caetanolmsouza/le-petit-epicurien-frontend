@@ -35,11 +35,13 @@ const RestaurantDetails = () => {
   console.log('galleryPictures', restaurant.galleryPictures)
 
   return (
+
     <>
       <h1>{restaurant.name}</h1>
       <div className="restaurant-container">
         <CarouselPicture galleryPictures={restaurant.galleryPictures} />
         <RestaurantInfo restaurant={restaurant} />
+
       </div>
     </>
   )

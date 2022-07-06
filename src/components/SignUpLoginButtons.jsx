@@ -1,12 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context'
 import { Button } from 'antd'
 
 const SignUpLoginButtons = () => {
-  const { isLoggedIn } = useContext(AuthContext)
+  const { isLoggedIn, removeToken } = useContext(AuthContext)
   console.log(isLoggedIn)
+  const navigate = useNavigate()
+
   return (
     <>
       {!isLoggedIn ? (
@@ -19,7 +21,15 @@ const SignUpLoginButtons = () => {
           </Link>
         </div>
       ) : (
-        <Button> logout</Button>
+        <Button
+          className="logoutButton"
+          onClick={() => {
+            removeToken()
+            navigate('/')
+          }}
+        >
+          Logout
+        </Button>
       )}
     </>
   )

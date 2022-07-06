@@ -10,7 +10,9 @@ p {
 }
 
 img {
-  padding: 70px 0px 0px 0px;
+  position: relative;
+  right: 10%;
+  width: 120%;
 }
 
 h1 {
@@ -21,5 +23,4 @@ h1 {
 a {
   font-size: 1.2rem;
   font-weight: bold;
-  padding: 20px;
 }
