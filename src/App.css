@@ -268,3 +268,11 @@ a {
   bottom: 1rem;
   position: relative;
 }
+
+.ant-card {
+  background-color: rgb(238, 235, 220);
+}
+
+.ant-btn-primary {
+  background-color: rgba(232, 185, 0, 0.918);
+}
