@@ -69,7 +69,7 @@ const ReservationForm = (props) => {
         </div>
 
         <button className="myReservSaveButton" type="submit">
-          Save
+          Book
         </button>
       </form>
     </div>

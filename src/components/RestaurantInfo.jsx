@@ -9,6 +9,7 @@ const RestaurantInfo = ({ restaurant }) => {
           {restaurant.name}
         </Link>
       </h2>
+
       <h3>
         <b>Cuisine:</b> {restaurant.cuisine}
       </h3>
