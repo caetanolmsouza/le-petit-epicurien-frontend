@@ -11,7 +11,7 @@ function CarouselPicture(props) {
           <picture>
             <img
               src={element['612x344']}
-              alt="restqurqnt"
+              alt="restaurant"
               width={612}
               height={344}
             />
