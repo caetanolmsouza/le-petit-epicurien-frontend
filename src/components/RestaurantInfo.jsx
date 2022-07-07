@@ -13,7 +13,7 @@ const RestaurantInfo = ({ restaurant }) => {
       <p>{restaurant.localisation?.address?.street_name}</p>
       <p>{restaurant.localisation?.address?.city}</p>
       <p>{restaurant.priceRange}</p>
-      <p>{`Loyalty program : ${restaurant.loyaltyProgram}`}</p>
+      <p>{`Loyalty program : ${restaurant.loyaltyProgram ? 'yes' : 'no'}`}</p>
       <p>{restaurant.marketingOffer?.title}</p>
     </div>
   )
