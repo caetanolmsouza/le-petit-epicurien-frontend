@@ -96,7 +96,7 @@ const AllReservations = () => {
             <b>Restaurant:</b>{' '}
             <b className="restName">{reservation.restaurant.name}</b>booked for{' '}
             {reservation.numberOfGuests} people{' '}
-            {formatAsWeekdayDateMonth(reservation.date)}
+            {formatAsWeekdayDateMonth(reservation.date)} à {reservation.time}
             <button
               className="delButton"
               onClick={() => deleteReservation(reservation._id)}
@@ -112,6 +112,7 @@ const AllReservations = () => {
             {reservation.showForm && (
               <ReservationForm
                 date={reservation.date}
+                time={reservation.time}
                 text={reservation.text}
                 numberOfGuests={reservation.numberOfGuests}
                 id={reservation._id}

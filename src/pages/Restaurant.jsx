@@ -17,7 +17,7 @@ const Restaurant = () => {
   const handleCreateReservation = (
     e,
     _reservationId,
-    { text, date, numberOfGuests }
+    { text, date, time, numberOfGuests }
   ) => {
     e.preventDefault()
 
@@ -30,6 +30,7 @@ const Restaurant = () => {
         text,
         numberOfGuests,
         restaurant: id,
+        time,
       },
       headers: { Authorization: `Bearer ${getToken()}` },
     })
@@ -44,10 +45,8 @@ const Restaurant = () => {
 
   return (
     <section>
-
       <RestaurantDetails />
       <div>
-
         {isLoggedIn ? (
           <ReservationForm handleSubmit={handleCreateReservation} />
         ) : (
