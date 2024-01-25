@@ -31,7 +31,7 @@ const SignupForm = () => {
     })
       .then((response) => {
         alert('User created')
-        navigate('/')
+        navigate('/login')
         console.log('good', response.data)
       })
       .catch((err) => {

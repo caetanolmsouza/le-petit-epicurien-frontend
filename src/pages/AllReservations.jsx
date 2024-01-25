@@ -6,6 +6,7 @@ import ReservationForm from '../components/ReservationForm'
 
 import { API_URL, formatAsWeekdayDateMonth } from '../constants'
 import '../App.css'
+import { Navigate } from 'react-router-dom'
 
 const AllReservations = () => {
   const [reservations, setReservations] = useState([])
@@ -86,7 +87,15 @@ const AllReservations = () => {
     setReservations(updatedReservations)
     console.log(' ', id)
   }
-  if (!reservations.length) return <p>No reservations yet</p>
+
+  if (!context.isLoggedIn) {
+    return <Navigate to="/login" />
+  }
+
+  if (!reservations.length) {
+    return <p>No reservations yet</p>
+  }
+
   return (
     <div className="myReservDiv">
       <h1 className="h1MyReserv"> My Reservations</h1>
@@ -96,7 +105,7 @@ const AllReservations = () => {
             <b>Restaurant:</b>{' '}
             <b className="restName">{reservation.restaurant.name}</b>booked for{' '}
             {reservation.numberOfGuests} people{' '}
-            {formatAsWeekdayDateMonth(reservation.date)}
+            {formatAsWeekdayDateMonth(reservation.date)} à {reservation.time}
             <button
               className="delButton"
               onClick={() => deleteReservation(reservation._id)}
@@ -112,6 +121,7 @@ const AllReservations = () => {
             {reservation.showForm && (
               <ReservationForm
                 date={reservation.date}
+                time={reservation.time}
                 text={reservation.text}
                 numberOfGuests={reservation.numberOfGuests}
                 id={reservation._id}
